@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "xub"
+version = "0.1.0"
+description = "Configuration tools for my desktop system."
+authors = ["Medardo Antonio Rodriguez"]
+readme = "README.rst"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/med-merchise/xub"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
