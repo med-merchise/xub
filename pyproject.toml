@@ -1,0 +1,17 @@
+[project]
+name = "xub"
+version = "0.1.0"
+description = "Configuration and Package management for my Linux Desktop."
+readme = "README.md"
+authors = [
+    { name = "Medardo Antonio Rodriguez" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+xub = "xub:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
