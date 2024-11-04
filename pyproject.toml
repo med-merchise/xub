@@ -7,7 +7,9 @@ authors = [
     { name = "Medardo Antonio Rodriguez" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "click>=8.1.7",
+]
 
 [project.scripts]
 xub = "xub:main"
