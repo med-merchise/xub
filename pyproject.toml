@@ -22,7 +22,10 @@ build-backend = "hatchling.build"
 default-groups = ["dev", "tests", "docs"]
 
 [dependency-groups]
-dev = []
+dev = [
+    "ipdb>=0.13.13",
+    "ipython>=8.29.0",
+]
 tests = [
     "pytest>=8.3.3",
 ]
