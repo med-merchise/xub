@@ -41,7 +41,7 @@ myst_enable_extensions = [
     'attrs_inline',
 ]
 
-myst_heading_anchors = 2  # Auto-generated header anchors
+myst_heading_anchors = 3  # auto-generated header anchors
 
 # -- Configuration for `intersphinx` extension -------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html
