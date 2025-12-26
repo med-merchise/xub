@@ -30,3 +30,8 @@ test = [
     "hypothesis>=6.148.8",
     "pytest>=9.0.2",
 ]
+tooling = [
+    "ipdb>=0.13.13",
+    "ipykernel>=7.1.0",
+    "notebook>=7.5.1",
+]
