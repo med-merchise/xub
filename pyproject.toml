@@ -1,0 +1,17 @@
+[project]
+name = "xub"
+version = "0.1.0"
+description = "Setting up a Linux-based workstation"
+readme = "README.md"
+authors = [
+    { name = "Medardo Antonio Rodriguez" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+xub = "xub:main"
+
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"
