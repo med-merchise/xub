@@ -35,3 +35,12 @@ tooling = [
     "ipykernel>=7.1.0",
     "notebook>=7.5.1",
 ]
+dev = [
+    { include-group="test" },
+    { include-group="lint" },
+    { include-group="docs" },
+    { include-group="tooling" },
+]
+
+[tool.uv]
+default-groups = ["dev"]
