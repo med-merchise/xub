@@ -44,3 +44,30 @@ dev = [
 
 [tool.uv]
 default-groups = ["dev"]
+
+[tool.pydocstyle]
+add-ignore = [
+    "D105", # Missing docstring in magic method
+    "D107", # Missing docstring in __init__
+]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+src_paths = ["xotl/tools"]
+skip_gitignore = true
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+ignore = [
+  "E501", # line-length is left to the formatter
+  "E731", # do not assign a `lambda` expression, use a `def` (we use it a lot)
+]
+preview = true
+
+[tool.ruff.format]
+quote-style = "preserve"
+preview = true
+exclude = ["src/<project-dir>/_version.py"]
