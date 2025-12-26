@@ -15,3 +15,9 @@ xub = "xub:main"
 [build-system]
 requires = ["uv_build>=0.9.18,<0.10.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+test = [
+    "hypothesis>=6.148.8",
+    "pytest>=9.0.2",
+]
