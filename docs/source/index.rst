@@ -1,17 +1,19 @@
-.. xub documentation master file, created by
-   sphinx-quickstart on Thu Dec 25 21:11:02 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+xub - Setting up a Linux-based workstation
+==========================================
 
-xub documentation
-=================
-
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+Contents
+--------
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :glob:
+   :maxdepth: 1
 
+   history/index
+   backlog/index
+   LICENSE
+
+Indices and tables
+==================
+
+* `genindex`:ref:
+* `search`:ref:
