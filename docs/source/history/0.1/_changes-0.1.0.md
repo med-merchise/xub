@@ -1,4 +1,5 @@
-.. rubric:: Project launch
+```{rubric} Project launch
+```
 
 - Create the project using `uv`.
 - Set initial configuration.
