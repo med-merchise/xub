@@ -8,29 +8,29 @@
 
 project = 'xub'
 
-def _get_metadata():    # noqa: E302
+def _get_metadata():
     """Update project attributes from package metadata."""
-    from datetime import datetime
-    from importlib.metadata import metadata, PackageNotFoundError
+    from datetime import UTC, datetime
+    from importlib.metadata import PackageNotFoundError, metadata
     try:
         aux = metadata(project)
         meta = {key.lower(): aux[key] for key in aux}
     except PackageNotFoundError:
         meta = {}
     start_year = 2026
-    current_year = datetime.now().year
+    current_year = datetime.now(UTC).year
     if current_year > start_year:
         meta['interval'] = f'{start_year}-{current_year}'
     else:
         meta['interval'] = str(current_year)
     return meta
 
-_meta = _get_metadata()    # noqa: E305
+_meta = _get_metadata()
 author = _meta.get('author', "Medardo Antonio Rodriguez")
 release = _meta.get('version', '0.1.0')
 version = '.'.join(release.split('.')[:2])
 summary = _meta.get('summary', f'{project} - documentation.')
-copyright = f'Copyright (C) {_meta.get('interval')}, {author}'
+copyright = f'Copyright (C) {_meta['interval']}, {author}'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
