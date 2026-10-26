@@ -5,9 +5,9 @@ This page documents workstation Git settings.
 
 - [Install Git](git-package).
 - [](#configure-global-options)
-- Generate an SSH key.
-- Register the SSH key with GitHub.
-- Test SSH authentication.
+- [Generate an SSH key](../../how-to/ssh.md#generate-an-ssh-key).
+- [Register the SSH key with GitHub and test SSH
+  authentication](../../how-to/ssh.md#configure-github-with-ssh).
 
 ## Configure Global Options
 
