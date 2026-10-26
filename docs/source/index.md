@@ -38,8 +38,8 @@ log/index
 ```{toctree}
 :maxdepth: 1
 
+backlog
 history/index
-backlog/index
 LICENSE
 ```
 
