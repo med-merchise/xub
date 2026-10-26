@@ -1,10 +1,41 @@
 # xub -- Linux Workstation Configuration System
 
-Contents
---------
+A Python project for managing the installation and configuration of a
+development workstation using Linux.
+
+## Getting started
+
+Install MyProject and learn the basics.
 
 ```{toctree}
-:glob:
+:maxdepth: 1
+
+getting-started/index
+tutorials/index
+```
+
+## User documentation
+
+```{toctree}
+:maxdepth: 1
+
+how-to/index
+explanation/index
+```
+
+## Technical documentation
+
+```{toctree}
+:maxdepth: 1
+
+reference/index
+setup/index
+log/index
+```
+
+## Project Management
+
+```{toctree}
 :maxdepth: 1
 
 history/index
