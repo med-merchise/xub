@@ -7,4 +7,5 @@ Prompts used to generate the different components of the system.
 ```{toctree}
 :maxdepth: 1
 
+module-cli
 ```

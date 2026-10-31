@@ -10,6 +10,7 @@ API signatures, CLI options, configuration.
 :glob:
 :maxdepth: 1
 
+cli
 configuration/index
 packages/index
 ```
