@@ -21,6 +21,7 @@ tutorials/index
 
 how-to/index
 explanation/index
+prompts/index
 ```
 
 ## Technical documentation
