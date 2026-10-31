@@ -20,4 +20,5 @@ ssh
 ```{toctree}
 :maxdepth: 1
 
+shared-ai-files
 ```
