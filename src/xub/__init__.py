@@ -1,2 +1,5 @@
-def main() -> None:
-    print("Hello from xub!")
+"""Set up and manage a Linux-based workstation."""
+
+from xub.cli import main
+
+__all__ = ["main"]
