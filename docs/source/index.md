@@ -30,6 +30,7 @@ prompts/index
 :maxdepth: 1
 
 reference/index
+xub/index
 setup/index
 log/index
 ```

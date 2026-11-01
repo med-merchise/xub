@@ -28,14 +28,17 @@ if t.TYPE_CHECKING:
 
 __all__ = ['add_group', 'app', 'command', 'main']
 
+#: Name of the program, used in the usage line and the version output.
 PROG_NAME = 'xub'
 
 #: Names that trigger the help output, both for the application and for
 #: every registered command and group.
 HELP_OPTION_NAMES = ['-h', '--help']
 
+#: Click context settings shared by the application and its groups.
 CONTEXT_SETTINGS = {'help_option_names': HELP_OPTION_NAMES}
 
+#: Root application and registry of every command and group.
 app = typer.Typer(
     name=PROG_NAME,
     help="Set up and manage a Linux-based workstation.",

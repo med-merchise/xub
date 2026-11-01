@@ -20,72 +20,11 @@ $ python -m xub [OPTIONS] COMMAND [ARGS]...
 
 Running `xub` with no arguments prints the help text.
 
-## Command registry
+## Commands
 
-Typer already provides a standard registry, so `xub` does not add a separate
-one. Every `typer.Typer` instance records what is attached to it:
-
-| Attribute             | Contents                                         |
-|-----------------------|--------------------------------------------------|
-| `registered_commands` | Commands added with `@app.command()`.            |
-| `registered_groups`   | Sub-applications added with `app.add_typer()`.   |
-| `registered_callback` | The root callback, which declares global options. |
-
-The root application is `xub.cli.app`. Typer builds the Click command tree,
-including all help output, from these attributes when the application runs.
-
-`xub.cli` defines a root callback on purpose. Without one, an application
-with exactly one command collapses into that single command. With the
-callback, `xub` is always a group of commands, and the callback is where
-global options such as `--version` are declared.
-
-### Register a command
-
-Use `xub.cli.command()`, a thin wrapper over `app.command()`:
-
-```python
-import typer
-
-from xub.cli import command
-
-
-@command()
-def hello(name: str = "world") -> None:
-    """Say hello."""
-    typer.echo(f"hello {name}")
-```
-
-The first line of the docstring becomes the short help shown in the command
-list. The full docstring is shown by `xub hello --help`.
-
-### Register a group of commands
-
-Use `xub.cli.add_group()`, a thin wrapper over `app.add_typer()`, to attach a
-sub-application:
-
-```python
-import typer
-
-from xub.cli import add_group
-
-net = typer.Typer(help="Network commands.")
-
-
-@net.command()
-def ping() -> None:
-    """Reply with pong."""
-    typer.echo("pong")
-
-
-add_group(net, "net")
-```
-
-The group is invoked as `xub net ping`. Unless the call passes its own
-`context_settings`, the group inherits the `-h`/`--help` option names of the
-root application.
-
-A module that registers commands must be imported before `xub.cli.main()`
-runs; otherwise its commands are not part of the registry.
+Commands and groups of commands are registered by the modules of `xub`
+through the registry in `xub.cli`. See {ref}`xub-cli` for how to register
+them.
 
 ## Global options
 
@@ -107,8 +46,8 @@ every option with its type, default value, and environment variable, and
 every registered command and group with its short help.
 
 `xub` adds `-h` as an alias by setting the Click context setting
-`help_option_names` to `["-h", "--help"]`. Context settings are passed down
-to subcommands, so the alias works at every level:
+`help_option_names` to {data}`xub.cli.HELP_OPTION_NAMES`. Context settings
+are passed down to subcommands, so the alias works at every level:
 
 ```console
 $ xub -h
