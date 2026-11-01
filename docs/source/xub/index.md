@@ -1,9 +1,9 @@
 (xub-package)=
 # Package `xub`
 
-API reference of the `xub` package. Each page mirrors one module under
-`src/xub/` and pulls its content from the docstrings in the source code. To
-use `xub` as an application, see {ref}`cli-reference`.
+Documentation of the `xub` package. Each page mirrors one module under
+`src/xub/` and pulls its API reference from the docstrings in the source
+code. The `xub` command-line interface is described in {ref}`xub-cli`.
 
 ```{eval-rst}
 .. automodule:: xub
