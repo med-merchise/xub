@@ -8,10 +8,12 @@
 
 project = 'xub'
 
+
 def _get_metadata():
     """Update project attributes from package metadata."""
     from datetime import UTC, datetime
     from importlib.metadata import PackageNotFoundError, metadata
+
     try:
         aux = metadata(project)
         meta = {key.lower(): aux[key] for key in aux}
@@ -25,12 +27,13 @@ def _get_metadata():
         meta['interval'] = str(current_year)
     return meta
 
+
 _meta = _get_metadata()
 author = _meta.get('author', "Medardo Antonio Rodriguez")
 release = _meta.get('version', '0.1.0')
 version = '.'.join(release.split('.')[:2])
-summary = _meta.get('summary', f'{project} - documentation.')
-copyright = f'Copyright (C) {_meta['interval']}, {author}'
+summary = _meta.get('summary', f"{project} - documentation.")
+copyright = f"Copyright (C) {_meta['interval']}, {author}"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -45,7 +48,7 @@ extensions = [
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ["**/_*"]
+exclude_patterns = ['**/_*']
 
 language = 'en'
 
@@ -61,7 +64,7 @@ html_theme = 'furo'
 html_static_path = ['_static']
 html_theme_options = {
     'light_css_variables': {
-        "font-stack--monospace": '''
+        'font-stack--monospace': '''
         "Roboto Mono",
         "SFMono-Regular",
         Menlo,
@@ -81,7 +84,7 @@ html_title = project
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
 }
-intersphinx_cache_limit = 365    # Maintain the cache forever.
+intersphinx_cache_limit = 365  # Maintain the cache forever.
 
 
 # -- Options for todo extension ----------------------------------------------

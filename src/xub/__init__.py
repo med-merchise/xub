@@ -2,4 +2,4 @@
 
 from xub.cli import main
 
-__all__ = ["main"]
+__all__ = ['main']

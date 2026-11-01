@@ -26,22 +26,22 @@ import typer
 if t.TYPE_CHECKING:
     from collections.abc import Callable
 
-__all__ = ["add_group", "app", "command", "main"]
+__all__ = ['add_group', 'app', 'command', 'main']
 
-PROG_NAME = "xub"
+PROG_NAME = 'xub'
 
 #: Names that trigger the help output, both for the application and for
 #: every registered command and group.
-HELP_OPTION_NAMES = ["-h", "--help"]
+HELP_OPTION_NAMES = ['-h', '--help']
 
-CONTEXT_SETTINGS = {"help_option_names": HELP_OPTION_NAMES}
+CONTEXT_SETTINGS = {'help_option_names': HELP_OPTION_NAMES}
 
 app = typer.Typer(
     name=PROG_NAME,
     help="Set up and manage a Linux-based workstation.",
     context_settings=CONTEXT_SETTINGS,
     no_args_is_help=True,
-    rich_markup_mode="rich",
+    rich_markup_mode='rich',
 )
 
 
@@ -50,7 +50,7 @@ def _get_version() -> str:
     try:
         return version(PROG_NAME)
     except PackageNotFoundError:  # pragma: no cover
-        return "unknown"
+        return 'unknown'
 
 
 def _version_callback(value: bool) -> None:
@@ -65,8 +65,8 @@ def _root(
     version: t.Annotated[
         bool,
         typer.Option(
-            "--version",
-            "-V",
+            '--version',
+            '-V',
             help="Show the program version and exit.",
             callback=_version_callback,
             is_eager=True,
@@ -96,7 +96,7 @@ def add_group(group: typer.Typer, name: str, **kwargs: t.Any) -> None:
     accepted keyword arguments.
 
     """
-    kwargs.setdefault("context_settings", CONTEXT_SETTINGS)
+    kwargs.setdefault('context_settings', CONTEXT_SETTINGS)
     app.add_typer(group, name=name, **kwargs)
 
 
