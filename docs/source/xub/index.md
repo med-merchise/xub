@@ -16,3 +16,11 @@ code. The `xub` command-line interface is described in {ref}`xub-cli`.
 
 cli
 ```
+
+## Package data
+
+```{toctree}
+:maxdepth: 1
+
+assets/index
+```
