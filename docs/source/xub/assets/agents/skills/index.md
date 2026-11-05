@@ -29,20 +29,40 @@ declared in `.claude-plugin/plugin.json`. Claude Code finds the plugin skills
 in `skills/` and prefixes them with the plugin name, so `format-prose` is
 invoked as `/xub:format-prose`. Other agents use the bare skill name.
 
-Check the plugin with:
+The same folder holds `.claude-plugin/marketplace.json`, a local marketplace
+also named `xub` that lists the plugin with source `./`. Check both manifests
+with:
 
 ```console
 $ claude plugin validate src/xub/assets/agents
 ```
 
-Load it for a single session with:
+Install the plugin for every session from the stable path
+`~/.config/xub/agents` (see {doc}`/how-to/shared-ai-files`):
 
 ```console
-$ claude --plugin-dir src/xub/assets/agents
+$ claude plugin marketplace add ~/.config/xub/agents
+$ claude plugin install xub@xub
 ```
+
+Claude Code reads a local marketplace in place, so edits to the skills apply
+without reinstalling. To try the plugin for a single session without
+installing it, run `claude --plugin-dir src/xub/assets/agents`.
 
 ## Other agents
 
-Codex and Gemini CLI read skills from a folder in their home directory. Link
-the shared `skills` folder there, as described in
-{doc}`/how-to/shared-ai-files`.
+Codex, Gemini CLI, and Antigravity read skills from a folder in the home
+directory. Link each skill there, rather than the whole `skills` folder, to
+keep the skills that each agent already ships:
+
+```bash
+src=~/.config/xub/agents/skills
+for skill in format-prose scaffold-python-docs; do
+    ln -sfn "$src/$skill" ~/.codex/skills/$skill          # Codex
+    ln -sfn "$src/$skill" ~/.gemini/config/skills/$skill  # Antigravity
+    gemini skills link --consent "$src/$skill"            # Gemini CLI
+done
+```
+
+`gemini skills link` creates the link in `~/.gemini/skills/`. Check it with
+`gemini skills list`.

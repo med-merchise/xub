@@ -1,0 +1,14 @@
+{
+  "name": "xub",
+  "owner": {
+    "name": "Medardo Antonio Rodriguez"
+  },
+  "description": "Local marketplace for the xub workstation plugin.",
+  "plugins": [
+    {
+      "name": "xub",
+      "source": "./",
+      "description": "Shared skills for AI coding agents on a xub workstation."
+    }
+  ]
+}

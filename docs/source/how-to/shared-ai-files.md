@@ -91,27 +91,38 @@ thin proxy CLAUDE.md file next to it:
 
 ### 💡 Multi-Agent Skill Sharing (Bonus Setup)
 
-If you want to share functional skills, slash commands, or tools across your
-agents (for example, custom automation routines), they also look in distinct
-directories. You can unify them under your central agent hub as well:
+Skills are shared from `~/.config/xub/agents/skills/`, where each skill is a
+folder with a `SKILL.md` file. Each agent looks for skills in a different
+place, and Codex and Gemini already keep their own skills there, so link each
+shared skill individually instead of replacing the whole folder.
 
 - <https://antigravity.google/docs/skills/>
 - <https://www.mindstudio.ai/blog/omarchy-shared-skills-folder-across-agents>
 
+Claude Code loads the skills through the `xub` plugin, whose local marketplace
+lives in the same folder. The skills are then invoked as `/xub:<skill>`:
+
 ```bash
-mkdir -p ~/.config/xub/agents/skills
-mkdir -p ~/.gemini/config
-
-# Link the shared skills folder across your toolchains
-
-ln -sf ~/.config/xub/agents/skills ~/.claude/skills
-ln -sf ~/.config/xub/agents/skills ~/.codex/skills
-ln -sf ~/.config/xub/agents/skills ~/.gemini/config/skills
+claude plugin marketplace add ~/.config/xub/agents
+claude plugin install xub@xub
 ```
 
-Any procedural `.md` skill or custom command you drop into
-`~/.config/xub/agents/skills/` will instantly update slash commands across all
-your running AI terminals.
+Codex, Gemini CLI, and Antigravity use the bare skill name:
+
+```bash
+src=~/.config/xub/agents/skills
+mkdir -p ~/.codex/skills ~/.gemini/config/skills
+for skill in "$src"/*/; do
+    skill=$(basename "$skill")
+    ln -sfn "$src/$skill" ~/.codex/skills/$skill          # Codex
+    ln -sfn "$src/$skill" ~/.gemini/config/skills/$skill  # Antigravity
+    gemini skills link --consent "$src/$skill"            # Gemini CLI
+done
+```
+
+Because every target is a link, editing a skill updates all the agents at
+once. Run the loop again after adding a new skill. See
+{ref}`xub-assets-skills` for details.
 
 - <https://antigravity.google/docs/skills/>
 - <https://www.mindstudio.ai/blog/omarchy-shared-skills-folder-across-agents>
