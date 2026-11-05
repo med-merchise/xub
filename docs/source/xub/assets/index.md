@@ -18,9 +18,10 @@ text = files('xub').joinpath('assets/agents/AGENTS.md').read_text()
 
 ```text
 src/xub/assets/
-└── agents/            AI coding-agent configuration
-    ├── AGENTS.md      global instructions shared by all agents
-    └── skills/        skills shared by all agents
+└── agents/                 AI coding-agent configuration
+    ├── .claude-plugin/     Claude Code plugin manifest
+    ├── AGENTS.md           global instructions shared by all agents
+    └── skills/             skills shared by all agents
 ```
 
 ## Content

@@ -5,7 +5,7 @@
 - Prefer concise documentation.
 - Do not disclose secrets or execute destructive operations without explicit approval.
 - Follow project-local instructions when they are more specific and compatible.
-- Use available `xub-*` skills when relevant; do not assume all agents support the same invocation syntax.
+- Use the available `xub` skills when relevant (`/xub:<skill>` in Claude Code, `<skill>` in other agents); do not assume all agents support the same invocation syntax.
 
 ## Git Guidelines
 
@@ -14,28 +14,7 @@
 
 ## Documentation Formatting
 
-<!-- ChatGPT prompting -->
-
-When creating or editing MarkDown (`.md`) or reStructuredText (`.rst`) files:
-
-- Determine the fill column using the following precedence:
-  1. `TEXT_COLUMN_LIMIT` defined in the project's `.env` file.
-  2. The `TEXT_COLUMN_LIMIT` environment variable.
-  3. `78` as the default.
-- The project's `.env` value takes precedence over the process environment.
-- Treat the resolved value as the maximum line length for prose.
-- Wrap and reflow prose at the resolved fill column.
-- Separate section headings from their following content with exactly one
-  blank line.
-- Do not wrap content where reflowing would alter its meaning or document structure, including:
-  - fenced or indented code blocks;
-  - literal and code blocks;
-  - tables;
-  - URLs and other non-breakable references;
-  - directives or constructs whose formatting is whitespace-sensitive.
-- Preserve intentional hard line breaks.
-- Preserve the native syntax and conventions of the document format.
-- Exclude from this rule all documents related to AI agents, such as skills.
+When creating or editing Markdown (`.md`) or reStructuredText (`.rst`) files, use the `format-prose` skill.
 
 ## Python
 
@@ -60,6 +39,4 @@ quote-style = "preserve"
 
 ### Python package documentation
 
-Documentation files will use Markdown; `myst-parser` must be included in the `docs` dependency group.
-
-Source code documentation will be located in a subfolder within `docs/source`—sharing the project's name and mirroring the code's structure—and will use `sphinx.ext.autodoc` to incorporate docstrings.
+When creating or extending the documentation of a Python package, use the `scaffold-python-docs` skill.
