@@ -8,4 +8,6 @@ Prompts used to generate the different components of the system.
 :maxdepth: 1
 
 module-cli
+assets-docs
+extract-agent-skills
 ```
